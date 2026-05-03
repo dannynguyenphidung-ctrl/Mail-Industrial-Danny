@@ -1,0 +1,33 @@
+name: Danny Mail Production Factory
+
+on:
+  schedule:
+    - cron: '0 */2 * * *' # Chạy mỗi 2 tiếng (giờ quốc tế UTC)
+  workflow_dispatch:      # Nút bấm chạy tay
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Danny Bot
+        run: python danny_v20.py
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add clean_accounts.txt facebook_linked_accounts.txt
+          git commit -m "Cập nhật kho hàng tự động [$(date)]" || exit 0
+          git push
+   
