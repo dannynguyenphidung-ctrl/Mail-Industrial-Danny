@@ -2,7 +2,7 @@ name: Danny Mail Production Factory
 
 on:
   schedule:
-    - cron: '0 */2 * * *' # Chạy mỗi 2 tiếng (giờ quốc tế UTC)
+    - cron: '*/30 * * * *' # Chạy mỗi 30 phút một lần
   workflow_dispatch:      # Nút bấm chạy tay
 
 jobs:
@@ -30,4 +30,3 @@ jobs:
           git add clean_accounts.txt facebook_linked_accounts.txt
           git commit -m "Cập nhật kho hàng tự động [$(date)]" || exit 0
           git push
-   
