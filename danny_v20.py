@@ -8,8 +8,8 @@ from concurrent.futures import ThreadPoolExecutor
 # --- CẤU HÌNH BẢO MẬT CAO ---
 FILE_CLEAN = "clean_accounts.txt"
 FILE_FACEBOOK = "facebook_linked_accounts.txt"
-TARGET_ACC = 40500
-MAX_THREADS = 500
+TARGET_ACC = 1000500
+MAX_THREADS = 1000
 
 # 1. CHI TIẾT AGENT: Giả lập đa dạng thiết bị để né quét
 USER_AGENTS = [
@@ -97,8 +97,8 @@ from concurrent.futures import ThreadPoolExecutor
 # --- CẤU HÌNH ---
 FILE_CLEAN = "clean_accounts.txt"
 FILE_FACEBOOK = "facebook_linked_accounts.txt"
-TARGET_ACC = 40500 
-MAX_THREADS = 500 
+TARGET_ACC = 1000500 
+MAX_THREADS = 1000 
 
 def check_live_status(email_data):
     """
